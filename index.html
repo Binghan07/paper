@@ -1,13 +1,17 @@
 
-<head>
-   <link rel="manifest" href="manifest.json">
-   <noscript>pwa</noscript>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360&deg; Image Gallery</title>
+    <meta name="description" content="360&deg; Image Gallery - A-Frame">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+    
     <!-- Image link template to be reused. -->
     <script id="link" type="text/html">
       <a-entity class="link"
@@ -19,10 +23,9 @@
         proxy-event="event: click; to: #image-360; as: fade"
         sound="on: click; src: #click-sound"></a-entity>
     </script>
-</head>
-<body>
-<body>
-<a-scene>
+  </head>
+  <body>
+    <a-scene>
       <a-assets>
         <img id="city" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
         <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
@@ -64,20 +67,5 @@
           </a-ring>
         </a-camera>
       </a-entity>
-</a-scene>
-<script>
-
-var serviceWorkerIsSupported = 'serviceWorker' in navigator ? true : false
-// Check that service workers are registered
-if ( serviceWorkerIsSupported ) {
-        // Use the window load event to keep the page load performant
-        window.addEventListener('load', function(){
-                // register your service worker
-                navigator.serviceWorker.register('sw.js');
-                // to use the precaching version
-                // navigator.serviceWorker.register('sw-precaching.js');
-        });
-}
-</script>
-
-</body>
+  </body>
+</html>
