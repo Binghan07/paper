@@ -12,6 +12,18 @@
 <body>
 <body>
 <a-scene background="color: #ECECEC" renderer="colorManagement: true;">
+    <!-- Camera + cursor. -->
+      <a-entity position="0 -.8 0">
+        <a-camera id="camera" look-controls wasd-controls>
+          <!-- <a-cursor color="#4CC3D9"></a-cursor> -->
+          <a-ring radius-outer="0.30" radius-inner="0.20"
+            position="0 0 -3"
+                  ambient-occlusion-map="5"
+            material="color: cyan; shader: flat"
+            cursor="maxDistance: 30; fuse: true">
+          </a-ring>
+        </a-camera>
+      </a-entity>
 <a-assets>
   <!--<a-asset-item id="why-male-models" src=""></a-asset-item>-->
   <img id="pc" src="images/iStock-459094615.png">
@@ -21,21 +33,7 @@
   <img id="shadow2" src="images/radial-shadow-2.png">
   <img id="shoes" src="images/shoes.png">
 </a-assets>
-  <!-- Camera + cursor. -->
-      <a-entity position="0 -.8 0">
-        <a-camera id="camera" look-controls wasd-controls>
-          <!-- <a-cursor color="#4CC3D9"></a-cursor> -->
-          <a-ring radius-outer="0.30" radius-inner="0.20"
-            position="0 0 -3"
-            material="color: cyan; shader: flat"
-            cursor="maxDistance: 30; fuse: true">
-            <a-animation begin="click" easing="ease-in" attribute="scale"
-              fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
-            <a-animation begin="fusing" easing="ease-in" attribute="scale"
-              fill="forwards" from="1 1 1" to="0.1 0.1 0.1" dur="1500"></a-animation>
-          </a-ring>
-        </a-camera>
-      </a-entity>
+
   <a-entity  
     id="model" 
     position="0 0 -3" 
@@ -55,6 +53,7 @@
 
     -->
     <a-image 
+      link="href:"       
       src="#pc" 
       position="0.5 1 .53" 
       scale="1.7 1.7 1.7"
@@ -65,6 +64,7 @@
   </a-entity>
   
   <a-image 
+    link="href:index.html"
     id="price" 
     src="#price" 
     width="7" 
@@ -81,7 +81,6 @@
     animation__rotation="property: rotation; from: -270 0 0; to: -90 0 0; dur: 750; delay: 1000" 
     animation__position="property: position; from: 8 0 -9; to: 8 3.5 -9; dur: 750; delay: 1000">
     <a-image 
-      link="href:index.html"
       src="#goggles" 
       width="2" 
       height="1" 
