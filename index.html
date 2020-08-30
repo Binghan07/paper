@@ -2,8 +2,23 @@
 <head>
    <link rel="manifest" href="manifest.json">
    <noscript>pwa</noscript>
-    <script src="https://aframe.io/aframe/dist/aframe-master.min.js"></script>
-    <script src="https://aframe.io/aframe/examples/showcase/link-traversal/js/components/link-controls.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+    <!-- Image link template to be reused. -->
+    <script id="link" type="text/html">
+      <a-entity class="link"
+        geometry="primitive: plane; height: 1; width: 1"
+        material="shader: flat; src: ${thumb}"
+        event-set__mouseenter="scale: 1.2 1.2 1;_target: #image-360; _delay: 300; material.src: ${src}"
+        event-set__mouseleave="scale: 1 1 1"
+        event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
+        proxy-event="event: click; to: #image-360; as: fade"
+        sound="on: click; src: #click-sound"></a-entity>
+    </script>
 </head>
 <body>
 <body>
@@ -21,16 +36,27 @@
       </a-entity>
     </a-entity>
   <a-assets>
-    <img id="arena" crossOrigin="anonymous" src="https://cdn.aframe.io/link-traversal/aframeArena.png">
-    <img id="thumbCity" crossOrigin="anonymous" src="https://cdn.aframe.io/link-traversal/thumbs/city.png">
-    <img id="thumbSunrise" crossOrigin="anonymous" src="https://cdn.aframe.io/link-traversal/thumbs/sunrise.png">
-    <img id="thumbMountains" crossOrigin="anonymous" src="https://cdn.aframe.io/link-traversal/thumbs/mountains.png">
-  </a-assets>
-  <a-link href="page1.html" position="-3.5 1.5 -1.0" image="#thumbCity"></a-link>
-  <a-link href="page1.html" position="0 1.5 -1.0" image="#thumbSunrise"></a-link>
-  <a-link href="page1.html" position="3.5 1.5 -1.0" image="#thumbMountains"></a-link>
-  <a-entity id="sky" geometry="primitive: sphere; radius: 65;" material="shader: flat; color: #47c9ff; side: double"></a-entity>
-  <a-entity id="ground" geometry="primitive: circle; radius: 8;" rotation="-90 0 0" material="shader: flat; src: #arena"></a-entity>
+        <img id="city" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
+        <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+        <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
+        <img id="sechelt-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+        <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
+        <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+
+      </a-assets>
+
+      <!-- 360-degree image. -->
+      <a-sky id="image-360" radius="10" src="#city"
+             animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+
+      <!-- Image links. -->
+      <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
+        <a-entity link="href: https://aframe.io/docs/1.0.0/components/cursor.html"; template="src: #link" data-src="#cubes" data-thumb="#cubes-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#city" data-thumb="#city-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#sechelt" data-thumb="#sechelt-thumb">
+</a-entity>
   <a-entity id="leftHand" link-controls="hand: left"></a-entity>
   <a-entity id="rightHand" link-controls="hand: right"></a-entity>
 </a-scene>
