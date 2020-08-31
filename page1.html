@@ -13,7 +13,7 @@
 <body>
 <a-scene background="color: #ECECEC" renderer="colorManagement: true;">
     <!-- Camera + cursor. -->
-      <a-entity position="0 -.8 0">
+      <a-entity position="0.4 -.4 0">
         <a-camera id="camera" look-controls wasd-controls>
           <!-- <a-cursor color="#4CC3D9"></a-cursor> -->
           <a-ring radius-outer="0.30" radius-inner="0.20"
@@ -55,12 +55,10 @@
     <a-image 
       link="href:"       
       src="#pc" 
-      position="0.5 1 .53" 
+      position="0.25 1 .53" 
       scale="1.7 1.7 1.7"
       >
     </a-image>
-    
-    
   </a-entity>
   
   <a-image 
@@ -95,7 +93,7 @@
     radius="5.7" 
     theta-length="18" 
     height=".45" 
-    position="0 0.9 0" 
+    position=".5 0.9 0"  
     scale=".4 .4 .4" 
     animation="property: rotation; from: 0 180 0; to: 0 210 0; delay: 750; dur: 1000">
   </a-curvedimage>
@@ -116,7 +114,6 @@
 <script src="main/aframe.min.js"></script>
 
 <script>
-
 var serviceWorkerIsSupported = 'serviceWorker' in navigator ? true : false
 // Check that service workers are registered
 if ( serviceWorkerIsSupported ) {
@@ -129,5 +126,4 @@ if ( serviceWorkerIsSupported ) {
         });
 }
 </script>
-
 </body>
