@@ -3,127 +3,115 @@
 <head>
    <link rel="manifest" href="manifest.json">
    <noscript>pwa</noscript>
-    <script src="https://aframe.io/aframe/dist/aframe-master.min.js"></script>
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script> 
-     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178423246-1"></script>
+    <script src="main/aframe.min.js"></script>
+     <!-- ga -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178423246-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'UA-178423246-1');
     </script>
 </head>
 <body>
-<a-scene background="color: #ECECEC" renderer="colorManagement: true;">
+  <a-scene background="color: #ECECEC" renderer="colorManagement: true;">
     <!-- Camera + cursor. -->
-      <a-entity position="0.4 -.4 0">
-        <a-camera id="camera" look-controls wasd-controls>
-          <!-- <a-cursor color="#4CC3D9"></a-cursor> -->
-          <a-ring radius-outer="0.30" radius-inner="0.20"
-            position="0 0 -3"
-                  ambient-occlusion-map="5"
-            material="color: cyan; shader: flat"
-            cursor="maxDistance: 30; fuse: true">
-          </a-ring>
-        </a-camera>
-      </a-entity>
-<a-assets>
-  <!--<a-asset-item id="why-male-models" src=""></a-asset-item>-->
-  <img id="pc" src="images/show_2.png">
-  <img id="txt" src="images/txt.png">
-  <img id="home" src="images/home.png">
-  <img id="shadow2" src="images/radial-shadow-2.png">
-  <img id="pic" src="images/pic_2.png">
-</a-assets>
-
-  <a-entity  
-    id="model" 
-    position="0 0 -3" 
-    
-  >
-    <!--<a-gltf-model 
-      position="-.35 0 .55" 
-      rotation="0 -20 0" 
-      scale="1.5 1.5 1.5" 
-      src="#why-male-models">
-    </a-gltf-model>
-    <a-image 
-      src="#shadow2" 
-      rotation="0 -20 0"
-      scale="1.5 1.5 1.5">
-    </a-image>
-
-    -->
-    <a-image 
-      link="href:"       
-      src="#pc" 
-      position="0.25 1 .53" 
-      scale="1.7 1.7 1.7"
-      >
-    </a-image>
-  </a-entity>
-  <a-cylinder 
-    id="home" 
-    color="#101010" 
-    height="0.02" 
-    radius="0.8" 
-    link="href:index.html"
-    animation__rotation="property: rotation; from: -270 0 0; to: -90 0 0; dur: 750; delay: 1000" 
-    animation__position="property: position; from: 8 0 -9; to: 8 3.5 -9; dur: 750; delay: 1000">
-    <a-image 
-      src="#home" 
-      width="2.7" 
-      height="2.7" 
-      rotation="90 0 0" 
-      position="0 -.05 0" 
-      scale=".4 .4 .4">
-    </a-image>
-  </a-cylinder>
-  <a-curvedimage 
-    id="text" 
-    src="#txt" 
-    radius="5.7" 
-    theta-length="18" 
-    height="2.8" 
-    position=".5 1.1 0"  
-    scale=".4 .4 .4" 
-    animation="property: rotation; from: 0 180 0; to: 0 210 0; delay: 750; dur: 1000">
-  </a-curvedimage>
-  <a-curvedimage 
-    id="pic" 
-    src="#pic" 
-    radius="5.7" 
-    theta-length="18" 
-    height=".8" 
-    position="0 0.9 0" 
-    scale=".4 .4 .4" 
-    animation="property: rotation; from: 0 180 0; to: 0 130 0; delay: 750; dur: 1000">
-  </a-curvedimage>
-  <a-cylinder position="0 0.5 0" radius="4" height="1.6" side="back" open-ended="true" color="#ECECEC"></a-cylinder>
-  <a-entity geometry="primitive: plane; height: 100; width: 100"
-            color="#222" rotation="-90 0 0"></a-entity>
-  <a-light type="directional" color="#fff" intensity="0.2" position="-1 2 1"></a-light>
-  <a-light type="ambient" color="#ECECEC"></a-light>
-</a-scene>
-<script src="main/aframe.min.js"></script>
-
-<script>
-var serviceWorkerIsSupported = 'serviceWorker' in navigator ? true : false
-// Check that service workers are registered
-if ( serviceWorkerIsSupported ) {
-        // Use the window load event to keep the page load performant
-        window.addEventListener('load', function(){
-                // register your service worker
-                navigator.serviceWorker.register('sw.js');
-                // to use the precaching version
-                // navigator.serviceWorker.register('sw-precaching.js');
-        });
-}
-</script>
+    <a-entity position="0.4 -.4 0">
+      <a-camera id="camera" look-controls wasd-controls>
+        <a-ring 
+          radius-outer="0.30" 
+          radius-inner="0.20"
+          position="0 0 -3"
+          ambient-occlusion-map="5"
+          material="color: cyan; shader: flat"
+          cursor="maxDistance: 30; fuse: true">
+        </a-ring>
+      </a-camera>
+    </a-entity>
+    <a-assets>
+      <img id="pc" src="images/show_2.png">
+      <img id="txt" src="images/txt.png">
+      <img id="home" src="images/home.png">
+      <img id="pic" src="images/pic_2.png">
+    </a-assets>
+    <a-entity  
+      id="model" 
+      position="0 0 -3">
+      <a-image       
+        src="#pc" 
+        position="0.25 1 .53" 
+        scale="1.7 1.7 1.7">
+      </a-image>
+    </a-entity>
+    <a-cylinder 
+      id="home" 
+      color="#101010" 
+      height="0.02" 
+      radius="0.8" 
+      link="href:index.html"
+      rotation="-90 0 0"
+      position="8 3.5 -9">
+      <a-image 
+        src="#home" 
+        width="2.7" 
+        height="2.7" 
+        rotation="90 0 0" 
+        position="0 -.05 0" 
+        scale=".4 .4 .4">
+      </a-image>
+    </a-cylinder>
+    <a-curvedimage 
+      id="text" 
+      src="#txt" 
+      radius="5.7" 
+      theta-length="18" 
+      height="2.8" 
+      position=".5 1.1 0"  
+      scale=".4 .4 .4"
+      rotation="0 210 0" >
+    </a-curvedimage>
+    <a-curvedimage 
+      id="pic" 
+      src="#pic" 
+      radius="5.7" 
+      theta-length="18" 
+      height=".8" 
+      position="0 0.9 0" 
+      scale=".4 .4 .4" 
+      rotation="0 130 0">
+    </a-curvedimage>
+    <a-cylinder 
+      position="0 0.5 0" 
+      radius="4" 
+      height="1.6" 
+      side="back" 
+      open-ended="true" 
+      color="#ECECEC">
+      </a-cylinder>
+    <a-entity 
+      geometry="primitive: plane; height: 100; width: 100"
+      color="#222" 
+      rotation="-90 0 0">
+    </a-entity>
+    <a-light 
+      type="directional" 
+      color="#fff" 
+      intensity="0.2" 
+      position="-1 2 1">      
+    </a-light>
+    <a-light 
+      type="ambient" 
+      color="#ECECEC">      
+    </a-light>
+  </a-scene>
+  <script>
+  //service Worker(pwa 用)
+  var serviceWorkerIsSup = 'serviceWorker' in navigator ? true : false
+  if ( serviceWorkerIsSup ) {
+    window.addEventListener('load', function(){
+      navigator.serviceWorker.register('sw.js');
+    });
+  }
+  </script>
 </body>
 </html>
