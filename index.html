@@ -3,23 +3,21 @@
 <html>
   <head>
     <link rel="manifest" href="manifest.json">
-    <meta charset="utf-8">
+    <meta charset="utf-8">  
     <title>test</title>
-    <meta name="description" content="360&deg; Image Gallery - A-Frame">
+    <meta name="description" content="360;">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>  
-    <!-- Image link template to be reused. -->
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178423246-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'UA-178423246-1');
     </script>
 
@@ -51,7 +49,6 @@
       <a-sky id="image-360" radius="10" src="#city"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
-
       <!-- Image links. -->
       <a-entity id="links" layout="type: line; margin: 1.5" position="0 -0.2 -4">
         <a-entity 
@@ -92,13 +89,9 @@
           data-thumb="#sechelt-thumb">
         </a-entity>
       </a-entity>
-     
-
-
       <!-- Camera + cursor. -->
       <a-entity position="1.3 -1 .7">
         <a-camera id="camera" look-controls wasd-controls>
-          <!-- <a-cursor color="#4CC3D9"></a-cursor> -->
           <a-ring radius-outer="0.30" radius-inner="0.20"
             position="0 0 -3"
             material="color: cyan; shader: flat"
@@ -111,9 +104,9 @@
         </a-camera>
       </a-entity>
       <script>
-      var serviceWorkerIsSupported = 'serviceWorker' in navigator ? true : false
+      var serviceWorkerIsSup = 'serviceWorker' in navigator ? true : false
       // Check that service workers are registered
-      if ( serviceWorkerIsSupported ) {
+      if ( serviceWorkerIsSup ) {
               // Use the window load event to keep the page load performant
               window.addEventListener('load', function(){
                       // register your service worker
@@ -123,6 +116,7 @@
               });
       }
       </script>
+
   </body>
 
 </html>
