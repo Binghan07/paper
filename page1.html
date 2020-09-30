@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="manifest" href="manifest.json">
-    <noscript>pwa</noscript>
-    <script src="main/aframe.min.js"></script>
+   <link rel="manifest" href="manifest.json">
+   <noscript>pwa</noscript>
     <script src="https://aframe.io/aframe/dist/aframe-master.min.js"></script>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script> 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178423246-1"></script>
+     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178423246-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -24,7 +23,7 @@
     <a-camera id="camera" look-controls wasd-controls>
       <a-ring radius-outer="0.30" radius-inner="0.20"
         position="0 0 -3"
-        ambient-occlusion-map="5"
+              ambient-occlusion-map="5"
         material="color: cyan; shader: flat"
         cursor="maxDistance: 30; fuse: true">
       </a-ring>
@@ -34,6 +33,7 @@
     <img id="pc" src="images/show_1.png">
     <img id="txt" src="images/txt.png">
     <img id="home" src="images/home.png">
+    <img id="shadow2" src="images/radial-shadow-2.png">
     <img id="pic" src="images/pic.png">
   </a-assets>
   <a-entity  
@@ -51,7 +51,9 @@
     color="#101010" 
     height="0.02" 
     radius="0.8" 
-    link="href:index.html">
+    link="href:index.html"
+    animation__rotation="property: rotation; from: -270 0 0; to: -90 0 0; dur: 750; delay: 1000" 
+    animation__position="property: position; from: 8 0 -9; to: 8 3.5 -9; dur: 750; delay: 1000">
     <a-image 
       src="#home" 
       width="2.7" 
@@ -68,7 +70,8 @@
     theta-length="18" 
     height="2.8" 
     position=".5 1.1 0"  
-    scale=".4 .4 .4" >
+    scale=".4 .4 .4" 
+    animation="property: rotation; from: 0 180 0; to: 0 210 0; delay: 750; dur: 1000">
   </a-curvedimage>
   <a-curvedimage 
     id="pic" 
@@ -87,13 +90,14 @@
   <a-light type="ambient" color="#ECECEC"></a-light>
 </a-scene>
 <script src="main/aframe.min.js"></script>
+
 <script>
-  var serviceWorkerIsSup = 'serviceWorker' in navigator ? true : false
-    if ( serviceWorkerIsSup ) {
-      window.addEventListener('load', function(){
-      navigator.serviceWorker.register('sw.js');
-    });
-  }
+var serviceWorkerIsSup = 'serviceWorker' in navigator ? true : false
+if ( serviceWorkerIsSup ) {
+        window.addEventListener('load', function(){
+          navigator.serviceWorker.register('sw.js');
+        });
+}
 </script>
 </body>
 </html>
