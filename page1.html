@@ -4,7 +4,7 @@
    <link rel="manifest" href="manifest.json">
    <noscript>pwa</noscript>
     <script src="https://aframe.io/aframe/dist/aframe-master.min.js"></script>
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="main/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
@@ -52,8 +52,8 @@
     height="0.02" 
     radius="0.8" 
     link="href:index.html"
-    animation__rotation="property: rotation; from: -270 0 0; to: -90 0 0; dur: 750; delay: 1000" 
-    animation__position="property: position; from: 8 0 -9; to: 8 3.5 -9; dur: 750; delay: 1000">
+    rotation="-90 0 0"
+    position="8 3.5 -9">
     <a-image 
       src="#home" 
       width="2.7" 
@@ -70,8 +70,8 @@
     theta-length="18" 
     height="2.8" 
     position=".5 1.1 0"  
-    scale=".4 .4 .4" 
-    animation="property: rotation; from: 0 180 0; to: 0 210 0; delay: 750; dur: 1000">
+    scale=".4 .4 .4"
+    rotation="0 210 0" >
   </a-curvedimage>
   <a-curvedimage 
     id="pic" 
@@ -81,7 +81,7 @@
     height=".8" 
     position="0 0.9 0" 
     scale=".4 .4 .4" 
-    animation="property: rotation; from: 0 180 0; to: 0 130 0; delay: 750; dur: 1000">
+    rotation="0 130 0">
   </a-curvedimage>
   <a-cylinder position="0 0.5 0" radius="4" height="1.6" side="back" open-ended="true" color="#ECECEC"></a-cylinder>
   <a-entity geometry="primitive: plane; height: 100; width: 100"
@@ -89,15 +89,14 @@
   <a-light type="directional" color="#fff" intensity="0.2" position="-1 2 1"></a-light>
   <a-light type="ambient" color="#ECECEC"></a-light>
 </a-scene>
-<script src="main/aframe.min.js"></script>
 
-<script>
-var serviceWorkerIsSup = 'serviceWorker' in navigator ? true : false
-if ( serviceWorkerIsSup ) {
-        window.addEventListener('load', function(){
-          navigator.serviceWorker.register('sw.js');
-        });
-}
-</script>
+  <script>
+  var serviceWorkerIsSup = 'serviceWorker' in navigator ? true : false
+  if ( serviceWorkerIsSup ) {
+          window.addEventListener('load', function(){
+            navigator.serviceWorker.register('sw.js');
+          });
+  }
+  </script>
 </body>
 </html>
