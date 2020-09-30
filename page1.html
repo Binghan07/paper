@@ -3,6 +3,7 @@
 <head>
     <link rel="manifest" href="manifest.json">
     <noscript>pwa</noscript>
+    <script src="main/aframe.min.js"></script>
     <script src="https://aframe.io/aframe/dist/aframe-master.min.js"></script>
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
@@ -84,7 +85,6 @@
   <a-light type="directional" color="#fff" intensity="0.2" position="-1 2 1"></a-light>
   <a-light type="ambient" color="#ECECEC"></a-light>
 </a-scene>
-<script src="main/aframe.min.js"></script>
 <script>
   var serviceWorkerIsSup = 'serviceWorker' in navigator ? true : false
     if ( serviceWorkerIsSup ) {
