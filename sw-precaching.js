@@ -1,21 +1,25 @@
-console.log('Hello PWA')
+console.log('Hello from sw.js')
 
 //////////////////////////////////////////////////////////////////////////////
-//		加載工作
+//		load workbox
 //////////////////////////////////////////////////////////////////////////////
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js')
 
 if (workbox) {
-	console.log(`加載成功 `)
+	console.log(`Yay! Workbox is loaded 🎉`)
 } else {
-	console.log(`工作未加載 `)
+	console.log(`Boo! Workbox didn't load 😬`)
 }
 
 //////////////////////////////////////////////////////////////////////////////
-//		設置級別
+//		set log level
 //////////////////////////////////////////////////////////////////////////////
+// The most verbose - displays all logs.
 workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug)
-//		註冊
+
+//////////////////////////////////////////////////////////////////////////////
+//		register some routes
+//////////////////////////////////////////////////////////////////////////////
 workbox.routing.registerRoute(
 	new RegExp('.*\.js'),
 	workbox.strategies.cacheFirst()
@@ -27,8 +31,14 @@ workbox.routing.registerRoute(
 )
 
 
-//	預緩存url
-// 可填寫 
+// TODO register / for index.html
+// - is this needed ?
+
+//////////////////////////////////////////////////////////////////////////////
+//		precache and route
+//////////////////////////////////////////////////////////////////////////////
+
+// TO BE FILLED BY ``````
 workbox.precaching.precacheAndRoute([
   {
     "url": "index.html",
@@ -39,7 +49,7 @@ workbox.precaching.precacheAndRoute([
     "revision": "d4b9dddffb8524988be9fc3e44af1c65"
   },
   {
-    "url": "main/aframe.min.js",
+    "url": "vendor/aframe.min.js",
     "revision": "50610178305c4ae36dce20d74d7dd06c"
   }
 ])
