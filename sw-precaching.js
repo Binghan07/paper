@@ -32,11 +32,14 @@ workbox.routing.registerRoute(
 workbox.precaching.precacheAndRoute([
   {
     "url": "index.html",
+    "revision": "cc28257303356890e7011a6a28167324"
   },
   {
     "url": "sw.js",
+    "revision": "d4b9dddffb8524988be9fc3e44af1c65"
   },
   {
     "url": "main/aframe.min.js",
+    "revision": "50610178305c4ae36dce20d74d7dd06c"
   }
 ])
